@@ -1,0 +1,44 @@
+<html>
+
+<head>
+    <title>Welcome to chat allication</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="app2-re.js"></script>
+    <link rel="stylesheet" href="app2-re.css">
+</head>
+
+<body>
+    <h2>Welcome to chat message</h2>
+    <div id="wrapper">
+        <div id="loginForm">
+            <h3>login</h3>
+            <input type="text" id="txtUsername">
+            <input type="button" id="btnRegister" value="Login">
+        </div>
+        <div id="chatForm">
+            <h3>Chat room</h3>
+            <div id="left">
+                <div>User online</div>
+                <div id="listUserOnline"></div>
+            </div>
+
+            <div id="right">
+                <div id="userInfo">
+                    Hello <span id="spanUsername">Hieu</span>
+                    <input type="button" name="" id="btnLogout" value="Logout">
+                </div>
+                <div id="inputMessageForm">
+                    <input type="text" id="txtMessage">
+                    <input type="button" value="Send message" id="btnSendMessage">
+                </div>
+                <div id="listMessage"></div>
+
+            </div>
+        </div>
+
+    </div>
+</body>
+
+
+</html>

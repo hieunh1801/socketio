@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <title>Message</title>
+</head>
+<script src="jquery-3.4.1.min.js"></script>
+<script src="socket.io/socket.io.js"></script>
+<script>
+    $(document).ready(() => {
+        console.log("Welcome to chat room")
+        var socket = io("http://localhost:3001/")
+        $("#sendMessageButton").click(() => {
+            let message = $("#inputText").val()
+            console.log("send message", message)
+            socket.emit("client-send-data", message)
+        })
+
+        socket.on("sever-send-data", (data) => {
+            $("#message").append(`<div>${data}</div>`)
+        })
+    })
+</script>
+
+<body>
+    <h2>Welcome to chat room</h2>
+    <input id="inputText" placeholder="typing text" />
+    <button id="sendMessageButton">Send Message</button>
+    <div id="message"> </div>
+</body>
+
+
+</html>

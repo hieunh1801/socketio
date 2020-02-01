@@ -1,0 +1,30 @@
+<html>
+
+<head>
+    <title>Messagee</title>
+</head>
+
+<script src="jquery-3.4.1.min.js"></script>
+<script src="socket.io/socket.io.js"></script>
+
+<script>
+    $(document).ready(() => {
+        var socket = io("http://localhost:3000");
+        $("#mrA").click(() => {
+            // alert("Mr A send message")
+            socket.emit("client-send-data", "Hello")
+        })
+
+        // client lắng nghe sự kiện
+        socket.on("server-send-data", (data) => {
+            $("#noidung").append(`<div> ${data} </div><br/>`)
+        })
+
+    })
+</script>
+<h2>Welcome to chat room</h2>
+
+<div id="mrA">Client A click send</div>
+<div id="noidung"></div>
+
+</html>
